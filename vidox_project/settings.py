@@ -1,3 +1,4 @@
+# vidox_project/settings.py
 from pathlib import Path
 import os
 import dj_database_url
@@ -8,7 +9,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-replace-this-in-production
 
 DEBUG = os.getenv("DEBUG", "true").lower() in ("1", "true", "yes")
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.application"]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,.vercel.app").split(",")
+ALLOWED_HOSTS = [h.strip() for h in ALLOWED_HOSTS if h.strip()]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -93,7 +95,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 CSRF_TRUSTED_ORIGINS = [
-    o.strip() for o in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()
+    o.strip()
+    for o in os.getenv(
+        "CSRF_TRUSTED_ORIGINS", "https://*.vercel.app,https://localhost"
+    ).split(",")
+    if o.strip()
 ]
 
 EMAIL_BACKEND = os.getenv(
