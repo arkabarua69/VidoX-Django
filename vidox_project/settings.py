@@ -8,11 +8,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-replace-this-in-production
 
 DEBUG = os.getenv("DEBUG", "true").lower() in ("1", "true", "yes")
 
-ALLOWED_HOSTS = [
-    h.strip()
-    for h in os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-    if h.strip()
-]
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.application"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
