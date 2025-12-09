@@ -1,8 +1,8 @@
-Django>=4.2
-uvicorn>=0.22.0    # ASGI server
+Django
+uvicorn
 asgiref
-whitenoise>=6.0.0
-dj-database-url>=1.0  # optional, parse DATABASE_URL env
-gunicorn             # optional if you prefer wsgi in other hosts
-psycopg2-binary>=2.9  # if using Postgres
-python-dotenv         # optional for local env
+whitenoise
+dj-database-url
+gunicorn             
+psycopg2-binary
+python-dotenv         
