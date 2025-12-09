@@ -1,2 +1,8 @@
 Django>=4.2
-yt-dlp>=2025.01.01
+uvicorn>=0.22.0    # ASGI server
+asgiref
+whitenoise>=6.0.0
+dj-database-url>=1.0  # optional, parse DATABASE_URL env
+gunicorn             # optional if you prefer wsgi in other hosts
+psycopg2-binary>=2.9  # if using Postgres
+python-dotenv         # optional for local env
