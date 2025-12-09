@@ -22,4 +22,5 @@ from downloader.admin import vidox_admin_site
 urlpatterns = [
     path("vidox-admin/", vidox_admin_site.urls),
     path("", include(("downloader.urls", "downloader"), namespace="downloader")),
+    path("admin/", admin.site.urls),
 ]
